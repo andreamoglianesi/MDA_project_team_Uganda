@@ -1,1 +1,1 @@
-web: gunicorn Platform.ipynb:server
+web: gunicorn app:server

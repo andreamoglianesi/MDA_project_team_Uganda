@@ -1,3 +1,4 @@
+import os
 from dash import dash_table
 from dash import Dash
 from jupyter_dash import JupyterDash
@@ -305,13 +306,8 @@ def update_map_and_table(selected_provinces, ordering_parameter):
     return fig, top_k_communes.to_dict('records')
 
 # Function to run the app
-def run_app(app, port):
-    try:
-        app.run_server(debug=True, port=port)
-        print(f"App running at http://127.0.0.1:{port}/")
-    except Exception as e:
-        print(f"Error running server: {e}")
+server = app.server
 
-# Run the app on a different port if needed
 if __name__ == '__main__':
-    run_app(app, port=8051)
+        port = int(os.environ.get('PORT', 8050))
+        app.run_server(debug=True, port=port, host='0.0.0.0')

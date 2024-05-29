@@ -304,8 +304,14 @@ def update_map_and_table(selected_provinces, ordering_parameter):
 
     return fig, top_k_communes.to_dict('records')
 
-# Run the app without 'mode'
-try:
-    app.run_server(debug=True)
-except Exception as e:
-    print(f"Error running server: {e}")
+# Function to run the app
+def run_app(app, port):
+    try:
+        app.run_server(debug=True, port=port)
+        print(f"App running at http://127.0.0.1:{port}/")
+    except Exception as e:
+        print(f"Error running server: {e}")
+
+# Run the app on a different port if needed
+if __name__ == '__main__':
+    run_app(app, port=8051)

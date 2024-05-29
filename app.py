@@ -1,4 +1,4 @@
-import dash_table
+from dash import dash_table
 from jupyter_dash import JupyterDash
 from dash import html
 from dash import dcc
@@ -306,6 +306,5 @@ def update_map_and_table(selected_provinces, ordering_parameter):
 # Run the app without 'mode'
 try:
     app.run_server(debug=True)
-    print("App running at http://127.0.0.1:8050/")
 except Exception as e:
     print(f"Error running server: {e}")

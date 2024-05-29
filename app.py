@@ -1,4 +1,5 @@
 from dash import dash_table
+from dash import Dash
 from jupyter_dash import JupyterDash
 from dash import html
 from dash import dcc
@@ -165,7 +166,7 @@ averages = averages.merge(communes_aggregated, on='Postal Code', how='left')
 # Determine the max value of deltaT for color range
 max_deltaT = averages['deltaT'].max()
 
-app = JupyterDash(__name__)
+app = Dash(__name__)
 app.title = "Cardiac Interventions Rankings"
 
 # Manually scale sizes between 50 and 200
